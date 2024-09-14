@@ -47,11 +47,12 @@ class _HomepageState extends State<Homepage> {
             ),
             const SizedBox(height: 8),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 22),
+              padding: const EdgeInsets.only(top: 22),
               child: SizedBox(
-                height: 340,
+                height: 360,
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
                         "Analytics",
@@ -60,40 +61,47 @@ class _HomepageState extends State<Homepage> {
                       ),
                       const ExpencesGraphDesign(),
                       const CircleProgessChart(),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                width: 2, color: Colors.pink.withOpacity(0.6))),
-                        child: BottomNavigationBar(items: [
-                          BottomNavigationBarItem(
-                              backgroundColor: Colors.grey.shade900,
-                              icon: const Icon(
-                                Icons.bar_chart,
-                                color: Colors.grey,
-                              ),
-                              label: ""),
-                          BottomNavigationBarItem(
-                              backgroundColor: Colors.grey.shade900,
-                              icon: const Icon(
-                                Icons.add_card,
-                                color: Colors.grey,
-                              ),
-                              label: ""),
-                          BottomNavigationBarItem(
-                              backgroundColor: Colors.grey.shade900,
-                              icon: const Icon(
-                                Icons.notifications,
-                                color: Colors.grey,
-                              ),
-                              label: ""),
-                          BottomNavigationBarItem(
-                              backgroundColor: Colors.grey.shade900,
-                              icon: const Icon(
-                                Icons.settings,
-                                color: Colors.grey,
-                              ),
-                              label: ""),
-                        ]),
+                      // rounding bottomnavigation bar
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  width: 2,
+                                  color: Colors.pink.withOpacity(0.6))),
+                          child: BottomNavigationBar(
+                              showSelectedLabels: false,
+                              items: [
+                                BottomNavigationBarItem(
+                                    backgroundColor: Colors.grey.shade900,
+                                    icon: const Icon(
+                                      Icons.bar_chart,
+                                      color: Colors.grey,
+                                    ),
+                                    label: ""),
+                                BottomNavigationBarItem(
+                                    backgroundColor: Colors.grey.shade900,
+                                    icon: const Icon(
+                                      Icons.add_card,
+                                      color: Colors.grey,
+                                    ),
+                                    label: ""),
+                                BottomNavigationBarItem(
+                                    backgroundColor: Colors.grey.shade900,
+                                    icon: const Icon(
+                                      Icons.notifications,
+                                      color: Colors.grey,
+                                    ),
+                                    label: ""),
+                                BottomNavigationBarItem(
+                                    backgroundColor: Colors.grey.shade900,
+                                    icon: const Icon(
+                                      Icons.settings,
+                                      color: Colors.grey,
+                                    ),
+                                    label: ""),
+                              ]),
+                        ),
                       )
                     ]),
               ),
