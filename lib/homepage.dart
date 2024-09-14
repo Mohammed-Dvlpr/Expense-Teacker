@@ -1,6 +1,8 @@
+import 'package:expense_tracker_ui/circle_progess_chart.dart';
 import 'package:expense_tracker_ui/expences_graph-design.dart';
 import 'package:expense_tracker_ui/expense_income_data.dart';
 import 'package:expense_tracker_ui/visa_card_design.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -44,19 +46,55 @@ class _HomepageState extends State<Homepage> {
               ],
             ),
             const SizedBox(height: 8),
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(vertical: 22),
               child: SizedBox(
                 height: 340,
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Analytics",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      ExpencesGraphDesign(),
+                      const ExpencesGraphDesign(),
+                      const CircleProgessChart(),
+                      Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 2, color: Colors.pink.withOpacity(0.6))),
+                        child: BottomNavigationBar(items: [
+                          BottomNavigationBarItem(
+                              backgroundColor: Colors.grey.shade900,
+                              icon: const Icon(
+                                Icons.bar_chart,
+                                color: Colors.grey,
+                              ),
+                              label: ""),
+                          BottomNavigationBarItem(
+                              backgroundColor: Colors.grey.shade900,
+                              icon: const Icon(
+                                Icons.add_card,
+                                color: Colors.grey,
+                              ),
+                              label: ""),
+                          BottomNavigationBarItem(
+                              backgroundColor: Colors.grey.shade900,
+                              icon: const Icon(
+                                Icons.notifications,
+                                color: Colors.grey,
+                              ),
+                              label: ""),
+                          BottomNavigationBarItem(
+                              backgroundColor: Colors.grey.shade900,
+                              icon: const Icon(
+                                Icons.settings,
+                                color: Colors.grey,
+                              ),
+                              label: ""),
+                        ]),
+                      )
                     ]),
               ),
             )
