@@ -1,4 +1,8 @@
+import 'package:expense_tracker_ui/expences_graph-design.dart';
+import 'package:expense_tracker_ui/expense_income_data.dart';
+import 'package:expense_tracker_ui/visa_card_design.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class Homepage extends StatefulWidget {
@@ -14,7 +18,7 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+        padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
         child: Column(
           children: [
             Row(
@@ -28,11 +32,33 @@ class _HomepageState extends State<Homepage> {
                     width: 30,
                     height: 30,
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade900,
-                    ),
+                        color: Colors.grey.shade900, shape: BoxShape.circle),
                     child: Icon(Icons.more_vert,
                         color: Colors.grey.shade500, size: 18))
               ],
+            ),
+            const Row(
+              children: [
+                VisaCardDesign(),
+                ExpenseIncomeData(),
+              ],
+            ),
+            const SizedBox(height: 8),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 22),
+              child: SizedBox(
+                height: 340,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Analytics",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      ExpencesGraphDesign(),
+                    ]),
+              ),
             )
           ],
         ),
